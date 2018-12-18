@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Numbrimäng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="numbrimang.css" />
+    
     
 </head>
 <body>
@@ -19,11 +19,13 @@
         <input type="submit" value="Kontrolli" class="guessSubmit">
     </div>
     
-    <div class="results">
+    <div class="results" id="resultss">
         <p class="guesses"></p>
         <p class="lastResult"></p>
         <p class="lowOrHigh"></p>
     </div>
+    
+    <button class="resetbutton" type="button" onclick="document.getElementById('resultss').stringTruncate(0);">Reset</button>
 
     <script src="numbrimang.js"></script>
 

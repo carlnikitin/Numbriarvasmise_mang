@@ -16,21 +16,35 @@ const checkGuess = () => {
         guesses.textContent = 'Eelnevad pakkumised: '
     }
 
-    guesses.textContent += `${userGuess}`;
+    guesses.textContent += `${userGuess}  `;
 
     if (userGuess === randomNumber) {
         // kui arvab õigesti
+        lastResult.textContent = "Palju õnne sa võitsid!";
+        lastResult.style.backgroundColor = "lightgreen";
+        lowOrHigh.textContent = "";
     } else if (guessCount === 10) {
         // kui kasutaja vastab 10 korda valesti
+        lastResult.textContent = "Mäng läbi!";
+        lowOrHigh.textContent = "";
     } else {
+        lastResult.textContent = "Vale vastus!";
+        lastResult.style.backgroundColor = "red";
+        
+        const lowOrHighText = "Viimane pakkumine oli ";
+        
         if (userGuess < randomNumber) {
             // liiga madal
+            lowOrHigh.textContent = lowOrHighText + "liiga madal";
         } else if (userGuess > randomNumber) {
             // liiga kõrge
-        }
-    }
+            lowOrHigh.textContent = lowOrHighText + "liiga kõrge";
+        };
+    };
 
     guessCount++;
+    guessField.value = '';
+    guessField.focus();
 };
 
 guessSubmit.addEventListener('click', checkGuess);
